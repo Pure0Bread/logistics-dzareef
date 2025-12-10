@@ -7,6 +7,8 @@ import Layout from "../components/Layout";
 // Pages
 import Dashboard from "../pages/Dashboard";
 import Customer from "../pages/Customer/Customer";
+import AddCustomer from "../pages/Customer/AddNewCustomer";
+import CustomerDetails from "../pages/Customer/CustomerDetails";
 import { Login } from "../pages/Login/Login";
 import { ForgotPassword } from "../pages/Login/ForgotPassword";
 import { ResetPassword } from "../pages/Login/ResetPassword";
@@ -19,11 +21,14 @@ const AppRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password" element={<ResetPassword />} />
+      
 
       {/*2. PROTECTED APP ROUTES (Inside Layout)*/}
       <Route element={<Layout />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/customer" element={<Customer />} />
+        <Route path="/add-customer" element={<AddCustomer />} />
+        <Route path="/customer/view" element={<CustomerDetails />} />
         
         {/* Placeholders */}
         <Route path="/enquiries" element={<div>Enquiries Page</div>} />

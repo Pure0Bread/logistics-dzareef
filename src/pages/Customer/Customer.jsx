@@ -1,4 +1,5 @@
-import React from "react";
+import {useState} from "react";
+import { useNavigate } from "react-router-dom";
 import { 
   Search, 
   Upload, 
@@ -8,9 +9,12 @@ import {
   ChevronLeft, 
   ChevronRight 
 } from "lucide-react";
+import BulkUploadModal from "../../components/BulkUploadModal";
 
 export default function Customer() {
   // Mock Data
+  const navigate = useNavigate();
+  const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
   const customers = Array(8).fill({
     company: "NovaTech Solutions",
     category: "End User",
@@ -24,6 +28,10 @@ export default function Customer() {
 
   return (
     <div className="space-y-6">
+      <BulkUploadModal 
+        isOpen={isUploadModalOpen} 
+        onClose={() => setIsUploadModalOpen(false)} 
+      />
       {/* 1. Page Header */}
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-medium text-gray-500">
@@ -57,11 +65,15 @@ export default function Customer() {
 
         {/* Right: Actions */}
         <div className="flex items-center gap-3">
-          <button className="flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">
+          <button 
+            onClick={() => setIsUploadModalOpen(true)}
+            className="flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50">
             <Upload size={18} />
             Bulk Upload
           </button>
-          <button className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors">
+          <button 
+            onClick={() => navigate ('/add-customer')}
+            className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors">
             <Plus size={18} />
             Customer
           </button>
@@ -73,7 +85,7 @@ export default function Customer() {
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-gray-50 border-b border-gray-100 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              <tr className="bg-gray-200 border-b border-gray-100 text-xs font-semibold text-gray-800 uppercase tracking-wider">
                 <th className="p-4">Company</th>
                 <th className="p-4">Primary Contact</th>
                 <th className="p-4">Contact Details</th>
@@ -118,7 +130,9 @@ export default function Customer() {
 
                   {/* Action */}
                   <td className="p-4 text-center">
-                    <button className="p-2 text-gray-400 hover:text-orange-500 hover:bg-orange-50 rounded-lg transition-colors">
+                    <button 
+                      onClick={() => navigate('/customer/view')}
+                      className="p-2 text-gray-400 hover:text-orange-500 hover:bg-orange-50 rounded-lg transition-colors">
                       <Eye size={18} />
                     </button>
                   </td>
