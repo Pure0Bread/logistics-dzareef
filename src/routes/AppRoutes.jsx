@@ -9,6 +9,9 @@ import Dashboard from "../pages/Dashboard";
 import Customer from "../pages/Customer/Customer";
 import AddCustomer from "../pages/Customer/AddNewCustomer";
 import CustomerDetails from "../pages/Customer/CustomerDetails";
+import EnquiriesList from "../pages/Enquiries/EnquiriesList";
+import NewEnquiries from "../pages/Enquiries/NewEnquiries";
+import NewQuotation from "../pages/Enquiries/NewQuotation";
 import { Login } from "../pages/Login/Login";
 import { ForgotPassword } from "../pages/Login/ForgotPassword";
 import { ResetPassword } from "../pages/Login/ResetPassword";
@@ -29,9 +32,12 @@ const AppRoutes = () => {
         <Route path="/customer" element={<Customer />} />
         <Route path="/add-customer" element={<AddCustomer />} />
         <Route path="/customer/view" element={<CustomerDetails />} />
+        <Route path="/enquiries" element={<EnquiriesList />} />
+        <Route path="/enquiries/new-enquiries" element={<NewEnquiries />} />
+        <Route path="/enquiries/new-quotation" element={<NewQuotation />} />
         
         {/* Placeholders */}
-        <Route path="/enquiries" element={<div>Enquiries Page</div>} />
+        
         <Route path="/calendar" element={<div>Calendar Page</div>} />
         <Route path="/claims" element={<div>Claims Page</div>} />
         <Route path="/settings" element={<div>Settings Page</div>} />
