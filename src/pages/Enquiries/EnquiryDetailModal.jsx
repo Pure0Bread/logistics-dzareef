@@ -239,7 +239,7 @@ const QuotationTab = () => {
       <div className="flex items-center justify-between mb-2">
         <h3 className="text-base font-bold text-gray-900">Quotations</h3>
         <button 
-          onClick={() => navigate('/enquiries/quotation/new')}
+          onClick={() => navigate('/enquiries/new-quotation')}
           className="flex items-center gap-2 px-3 py-1.5 bg-black text-white text-xs font-medium rounded-lg hover:bg-gray-800">
           <Plus size={14} /> New Quotation
         </button>
